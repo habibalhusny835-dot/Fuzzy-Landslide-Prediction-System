@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SPL.MainPage"
+             BackgroundColor="#020617">
+
+    <Grid Padding="35">
+
+        <Frame WidthRequest="980"
+               HeightRequest="620"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               BackgroundColor="#07111F"
+               BorderColor="#00D9FF"
+               CornerRadius="24"
+               Padding="0"
+               HasShadow="False">
+
+            <Grid ColumnDefinitions="0.9*,1.1*">
+
+                <!-- LEFT PANEL -->
+                <VerticalStackLayout Padding="45" Spacing="24">
+
+                    <VerticalStackLayout>
+                        <Label Text="⛰ SPL"
+                               FontSize="38"
+                               FontAttributes="Bold"
+                               TextColor="#00D9FF"/>
+                        <Label Text="Sistem Prediksi Longsor"
+                               TextColor="#CBD5E1"/>
+                    </VerticalStackLayout>
+
+                    <Label Text="⛰️"
+                           FontSize="120"
+                           HorizontalOptions="Center"
+                           Margin="0,25,0,0"/>
+
+                    <Frame BackgroundColor="#0B1220"
+                           BorderColor="#0EA5E9"
+                           CornerRadius="18"
+                           Padding="18">
+                        <VerticalStackLayout Spacing="12">
+                            <Label Text="⚙ Prediksi Akurat"
+                                   TextColor="#00D9FF"
+                                   FontAttributes="Bold"/>
+                            <Label Text="Decision Tree untuk klasifikasi risiko longsor."
+                                   TextColor="#CBD5E1"/>
+
+                            <Label Text="📡 Monitoring Real-time"
+                                   TextColor="#00D9FF"
+                                   FontAttributes="Bold"/>
+                            <Label Text="Pantau curah hujan, kelembapan, dan kemiringan."
+                                   TextColor="#CBD5E1"/>
+
+                            <Label Text="🤖 NLP Assistant"
+                                   TextColor="#00D9FF"
+                                   FontAttributes="Bold"/>
+                            <Label Text="Bantuan mitigasi berbasis chatbot sederhana."
+                                   TextColor="#CBD5E1"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                </VerticalStackLayout>
+
+                <!-- RIGHT PANEL -->
+                <VerticalStackLayout Grid.Column="1"
+                                     Padding="50"
+                                     VerticalOptions="Center"
+                                     Spacing="16">
+
+                    <Label Text="Selamat Datang Kembali"
+                           FontSize="30"
+                           FontAttributes="Bold"
+                           TextColor="White"/>
+
+                    <Label Text="Silakan masuk ke akun Anda untuk melanjutkan"
+                           TextColor="#94A3B8"/>
+
+                    <Label Text="USERNAME"
+                           TextColor="#CBD5E1"
+                           FontAttributes="Bold"/>
+
+                    <Entry x:Name="EntryUsername"
+                           Placeholder="Masukkan username"
+                           TextColor="White"
+                           PlaceholderColor="#94A3B8"
+                           BackgroundColor="#111827"
+                           HeightRequest="50"/>
+
+                    <Label Text="PASSWORD"
+                           TextColor="#CBD5E1"
+                           FontAttributes="Bold"/>
+
+                    <Entry x:Name="EntryPassword"
+                           Placeholder="Masukkan password"
+                           IsPassword="True"
+                           TextColor="White"
+                           PlaceholderColor="#94A3B8"
+                           BackgroundColor="#111827"
+                           HeightRequest="50"/>
+
+                    <Label Text="HAK AKSES"
+                           TextColor="#CBD5E1"
+                           FontAttributes="Bold"/>
+
+                    <Picker x:Name="PickerRole"
+                            Title="Pilih hak akses"
+                            TextColor="White"
+                            TitleColor="#94A3B8"
+                            BackgroundColor="#111827"
+                            HeightRequest="50"/>
+
+                    <Button Text="MASUK"
+                            BackgroundColor="#0284C7"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            CornerRadius="14"
+                            HeightRequest="55"
+                            Margin="0,15,0,0"
+                            Clicked="OnLoginClicked"/>
+
+                    <Button Text="Belum punya akun? Daftar sekarang"
+                            BackgroundColor="Transparent"
+                            TextColor="#00D9FF"
+                            Clicked="OnGoToRegisterClicked"/>
+
+                    <Label Text="© 2026 SPL - Sistem Prediksi Longsor"
+                           TextColor="#64748B"
+                           FontSize="12"
+                           HorizontalOptions="Center"
+                           Margin="0,20,0,0"/>
+
+                </VerticalStackLayout>
+
+            </Grid>
+        </Frame>
+    </Grid>
+</ContentPage>

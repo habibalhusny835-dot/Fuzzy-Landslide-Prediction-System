@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SPL.FaceVerificationPage"
+             BackgroundColor="#020617">
+
+    <Grid Padding="18">
+
+        <Frame BackgroundColor="#07111F"
+               BorderColor="#00D9FF"
+               CornerRadius="20"
+               Padding="22"
+               HasShadow="False">
+
+            <Grid RowDefinitions="Auto,*,Auto,Auto"
+                  ColumnDefinitions="270,*,300"
+                  RowSpacing="14"
+                  ColumnSpacing="18">
+
+                <!-- HEADER -->
+                <Grid Grid.ColumnSpan="3" ColumnDefinitions="*,Auto,*">
+
+                    <VerticalStackLayout>
+                        <Label Text="⛰ SPL"
+                               FontSize="30"
+                               FontAttributes="Bold"
+                               TextColor="#00D9FF"/>
+
+                        <Label Text="Sistem Prediksi Longsor"
+                               TextColor="#CBD5E1"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Column="1"
+                                         HorizontalOptions="Center">
+                        <Label Text="FACE VERIFICATION"
+                               FontSize="34"
+                               FontAttributes="Bold"
+                               TextColor="#00D9FF"
+                               HorizontalOptions="Center"/>
+
+                        <Label Text="VERIFIKASI AKSES PENGGUNA"
+                               TextColor="White"
+                               FontSize="16"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+
+                    <Frame Grid.Column="2"
+                           BackgroundColor="#052E2B"
+                           BorderColor="#10B981"
+                           CornerRadius="12"
+                           Padding="14"
+                           HorizontalOptions="End">
+                        <Label Text="🛡 SISTEM AMAN"
+                               TextColor="#22C55E"
+                               FontAttributes="Bold"/>
+                    </Frame>
+                </Grid>
+
+                <!-- LEFT PANEL -->
+                <VerticalStackLayout Grid.Row="1"
+                                     Grid.Column="0"
+                                     Spacing="14">
+
+                    <Frame BackgroundColor="#0B1220"
+                           BorderColor="#0EA5E9"
+                           CornerRadius="14"
+                           Padding="18">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="👤 INFORMASI PENGGUNA"
+                                   TextColor="#00D9FF"
+                                   FontAttributes="Bold"/>
+
+                            <Label x:Name="LabelRole"
+                                   Text="User: - | Role: -"
+                                   TextColor="#CBD5E1"/>
+
+                            <Label Text="Status: ● Online"
+                                   TextColor="#22C55E"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame BackgroundColor="#0B1220"
+                           BorderColor="#0EA5E9"
+                           CornerRadius="14"
+                           Padding="18">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="📷 STATUS KAMERA"
+                                   TextColor="#00D9FF"
+                                   FontAttributes="Bold"/>
+
+                            <Label x:Name="LabelCameraStatus"
+                                   Text="Kamera belum aktif"
+                                   TextColor="#CBD5E1"/>
+
+                            <Label Text="Resolusi: 640 x 480"
+                                   TextColor="#CBD5E1"/>
+
+                            <Label Text="Mode: OpenCV Haar Cascade"
+                                   TextColor="#CBD5E1"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame BackgroundColor="#0B1220"
+                           BorderColor="#0EA5E9"
+                           CornerRadius="14"
+                           Padding="18">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="✅ PETUNJUK"
+                                   TextColor="#00D9FF"
+                                   FontAttributes="Bold"/>
+
+                            <Label Text="✓ Pastikan wajah berada di dalam frame"
+                                   TextColor="#CBD5E1"/>
+
+                            <Label Text="✓ Gunakan pencahayaan cukup"
+                                   TextColor="#CBD5E1"/>
+
+                            <Label Text="✓ Jarak ideal 50 - 100 cm"
+                                   TextColor="#CBD5E1"/>
+
+                            <Label Text="✓ Jangan gunakan masker"
+                                   TextColor="#CBD5E1"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                </VerticalStackLayout>
+
+                <!-- CENTER PANEL -->
+                <VerticalStackLayout Grid.Row="1"
+                                     Grid.Column="1"
+                                     Spacing="14">
+
+                    <Frame BackgroundColor="#0B1220"
+                           BorderColor="#0EA5E9"
+                           CornerRadius="14"
+                           Padding="18">
+
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="🔴 LIVE CAMERA PREVIEW"
+                                   TextColor="White"
+                                   FontAttributes="Bold"/>
+
+                            <Frame BackgroundColor="#111827"
+                                   CornerRadius="12"
+                                   HeightRequest="320"
+                                   Padding="0">
+                                <Image x:Name="CameraPreview"
+                                       Aspect="AspectFill"/>
+                            </Frame>
+
+                            <Label x:Name="LabelDetectionStatus"
+                                   Text="Menunggu proses verifikasi..."
+                                   TextColor="#22C55E"
+                                   HorizontalOptions="Center"
+                                   FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame BackgroundColor="#0B1220"
+                           BorderColor="#0EA5E9"
+                           CornerRadius="14"
+                           Padding="18">
+
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="AKURASI WAJAH"
+                                   TextColor="White"
+                                   FontAttributes="Bold"/>
+
+                            <ProgressBar x:Name="ProgressAkurasi"
+                                         Progress="0"
+                                         HeightRequest="14"
+                                         ProgressColor="#00D9FF"
+                                         BackgroundColor="#1E293B"/>
+
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label Text="0%"
+                                       TextColor="#94A3B8"/>
+
+                                <Label Grid.Column="1"
+                                       x:Name="LabelAkurasi"
+                                       Text="Akurasi: 0%"
+                                       TextColor="#00D9FF"
+                                       FontSize="22"
+                                       FontAttributes="Bold"/>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                </VerticalStackLayout>
+
+                <!-- RIGHT PANEL -->
+                <VerticalStackLayout Grid.Row="1"
+                                     Grid.Column="2"
+                                     Spacing="14">
+
+                    <Frame BackgroundColor="#0B1220"
+                           BorderColor="#0EA5E9"
+                           CornerRadius="14"
+                           Padding="20">
+                        <VerticalStackLayout Spacing="12">
+
+                            <Label Text="🛡 STATUS VERIFIKASI"
+                                   TextColor="#00D9FF"
+                                   FontAttributes="Bold"/>
+
+                            <Label Text="◎"
+                                   FontSize="90"
+                                   TextColor="#0EA5E9"
+                                   HorizontalOptions="Center"/>
+
+                            <Label x:Name="LabelPersenBesar"
+                                   Text="0%"
+                                   FontSize="40"
+                                   FontAttributes="Bold"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"/>
+
+                            <Label x:Name="LabelStatusVerifikasi"
+                                   Text="BELUM DIVERIFIKASI"
+                                   TextColor="#F59E0B"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame BackgroundColor="#0B1220"
+                           BorderColor="#10B981"
+                           CornerRadius="14"
+                           Padding="18">
+                        <VerticalStackLayout Spacing="8">
+
+                            <Label Text="STATUS SAAT INI"
+                                   TextColor="#00D9FF"
+                                   FontAttributes="Bold"/>
+
+                            <Label x:Name="LabelStatusSaatIni"
+                                   Text="Klik mulai verifikasi untuk membuka kamera."
+                                   TextColor="#CBD5E1"/>
+
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame BackgroundColor="#0B1220"
+                           BorderColor="#334155"
+                           CornerRadius="14"
+                           Padding="18">
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="RIWAYAT VERIFIKASI"
+                                   TextColor="#00D9FF"
+                                   FontAttributes="Bold"/>
+
+                            <Label x:Name="LabelRiwayat"
+                                   Text="Belum ada riwayat."
+                                   TextColor="#CBD5E1"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                </VerticalStackLayout>
+
+                <!-- ACTION BUTTONS -->
+                <Grid Grid.Row="2"
+                      Grid.ColumnSpan="3"
+                      ColumnDefinitions="Auto,Auto"
+                      HorizontalOptions="Center"
+                      ColumnSpacing="20"
+                      Margin="0,4,0,0">
+
+                    <Button Text="🔎 MULAI VERIFIKASI"
+                            WidthRequest="220"
+                            HeightRequest="42"
+                            BackgroundColor="#0B5ED7"
+                            TextColor="White"
+                            FontSize="14"
+                            FontAttributes="Bold"
+                            CornerRadius="10"
+                            Clicked="OnVerifyClicked"/>
+
+                    <Button Grid.Column="1"
+                            Text="↪ MASUK DASHBOARD"
+                            WidthRequest="220"
+                            HeightRequest="42"
+                            BackgroundColor="#16A34A"
+                            TextColor="White"
+                            FontSize="14"
+                            FontAttributes="Bold"
+                            CornerRadius="10"
+                            Clicked="OnMasukDashboardClicked"/>
+
+                </Grid>
+
+                <!-- BACK BUTTON -->
+                <Button Grid.Row="3"
+                        Grid.ColumnSpan="3"
+                        Text="← Kembali ke Login"
+                        BackgroundColor="Transparent"
+                        TextColor="#00D9FF"
+                        FontSize="13"
+                        HorizontalOptions="Center"
+                        Clicked="OnBackToLoginClicked"/>
+
+            </Grid>
+        </Frame>
+    </Grid>
+</ContentPage>

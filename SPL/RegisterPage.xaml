@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SPL.RegisterPage"
+             BackgroundColor="#020617">
+
+    <ScrollView>
+        <Grid Padding="30">
+
+            <Frame WidthRequest="1040"
+                   HeightRequest="640"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   BackgroundColor="#07111F"
+                   BorderColor="#00D9FF"
+                   CornerRadius="24"
+                   Padding="0"
+                   HasShadow="False">
+
+                <Grid ColumnDefinitions="0.9*,1.1*">
+
+                    <!-- LEFT PANEL -->
+                    <VerticalStackLayout Padding="45" Spacing="22">
+
+                        <VerticalStackLayout>
+                            <Label Text="⛰ SPL"
+                                   FontSize="38"
+                                   FontAttributes="Bold"
+                                   TextColor="#00D9FF"/>
+
+                            <Label Text="Sistem Prediksi Longsor"
+                                   TextColor="#CBD5E1"/>
+                        </VerticalStackLayout>
+
+                        <Label Text="🛡️"
+                               FontSize="110"
+                               HorizontalOptions="Center"
+                               Margin="0,15,0,0"/>
+
+                        <Frame BackgroundColor="#0B1220"
+                               BorderColor="#0EA5E9"
+                               CornerRadius="18"
+                               Padding="18">
+                            <VerticalStackLayout Spacing="10">
+
+                                <Label Text="🔐 Akses Aman"
+                                       TextColor="#00D9FF"
+                                       FontAttributes="Bold"/>
+                                <Label Text="Login menggunakan akun dan verifikasi wajah."
+                                       TextColor="#CBD5E1"/>
+
+                                <Label Text="📷 OpenCV Haar Cascade"
+                                       TextColor="#00D9FF"
+                                       FontAttributes="Bold"/>
+                                <Label Text="Deteksi wajah menggunakan grayscale."
+                                       TextColor="#CBD5E1"/>
+
+                                <Label Text="⚡ Dashboard Futuristic"
+                                       TextColor="#00D9FF"
+                                       FontAttributes="Bold"/>
+                                <Label Text="Admin dan masyarakat memiliki tampilan berbeda."
+                                       TextColor="#CBD5E1"/>
+
+                            </VerticalStackLayout>
+                        </Frame>
+
+                    </VerticalStackLayout>
+
+                    <!-- RIGHT PANEL -->
+                    <VerticalStackLayout Grid.Column="1"
+                                         Padding="35"
+                                         VerticalOptions="Center"
+                                         Spacing="7">
+
+                        <Label Text="Buat Akun Baru"
+                               FontSize="30"
+                               FontAttributes="Bold"
+                               TextColor="White"/>
+
+                        <Label Text="Daftar untuk mendapatkan akses ke sistem"
+                               TextColor="#94A3B8"/>
+
+                        <Label Text="USERNAME"
+                               TextColor="#CBD5E1"
+                               FontAttributes="Bold"/>
+
+                        <Entry x:Name="EntryUsername"
+                               Placeholder="Buat username"
+                               TextColor="White"
+                               PlaceholderColor="#94A3B8"
+                               BackgroundColor="#111827"
+                               HeightRequest="42"/>
+
+                        <Label Text="PASSWORD"
+                               TextColor="#CBD5E1"
+                               FontAttributes="Bold"/>
+
+                        <Entry x:Name="EntryPassword"
+                               Placeholder="Buat password"
+                               IsPassword="True"
+                               TextColor="White"
+                               PlaceholderColor="#94A3B8"
+                               BackgroundColor="#111827"
+                               HeightRequest="42"/>
+
+                        <Label Text="HAK AKSES"
+                               TextColor="#CBD5E1"
+                               FontAttributes="Bold"/>
+
+                        <Picker x:Name="PickerRole"
+                                Title="Pilih hak akses"
+                                TextColor="White"
+                                TitleColor="#94A3B8"
+                                BackgroundColor="#111827"
+                                HeightRequest="42"/>
+
+                        <Label Text="PREVIEW KAMERA WAJAH"
+                               TextColor="#CBD5E1"
+                               FontAttributes="Bold"/>
+
+                        <Frame BackgroundColor="#111827"
+                               BorderColor="#0EA5E9"
+                               CornerRadius="14"
+                               HeightRequest="110"
+                               Padding="0">
+                            <Image x:Name="ImageFacePreview"
+                                   Aspect="AspectFill"/>
+                        </Frame>
+
+                        <Label x:Name="LabelFaceStatus"
+                               Text="Belum ada wajah terdeteksi"
+                               TextColor="#94A3B8"
+                               HorizontalOptions="Center"
+                               FontSize="13"/>
+
+                        <Button Text="BUKA KAMERA"
+                                BackgroundColor="#0284C7"
+                                TextColor="White"
+                                FontAttributes="Bold"
+                                CornerRadius="12"
+                                HeightRequest="42"
+                                Clicked="OnCaptureFaceClicked"/>
+
+                        <Button Text="DAFTARKAN AKUN"
+                                BackgroundColor="#10B981"
+                                TextColor="White"
+                                FontAttributes="Bold"
+                                CornerRadius="12"
+                                HeightRequest="42"
+                                Clicked="OnRegisterClicked"/>
+
+                        <Button Text="KEMBALI KE LOGIN"
+                                BackgroundColor="Transparent"
+                                TextColor="#00D9FF"
+                                FontAttributes="Bold"
+                                HeightRequest="35"
+                                Clicked="OnBackToLoginClicked"/>
+
+                    </VerticalStackLayout>
+
+                </Grid>
+            </Frame>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

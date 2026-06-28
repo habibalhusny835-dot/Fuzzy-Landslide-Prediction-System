@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SPL.MasyarakatDashboardPage"
+             BackgroundColor="#020617">
+
+    <Grid ColumnDefinitions="230,*" Padding="14" ColumnSpacing="14">
+
+        <!-- SIDEBAR -->
+        <Frame BackgroundColor="#07111F"
+               BorderColor="#0EA5E9"
+               CornerRadius="14"
+               Padding="18">
+
+            <VerticalStackLayout Spacing="18">
+
+                <Label Text="⛰ SPL"
+                       FontSize="30"
+                       FontAttributes="Bold"
+                       TextColor="#00D9FF"/>
+
+                <Label Text="Dashboard Masyarakat"
+                       FontSize="12"
+                       TextColor="#CBD5E1"/>
+
+                <Button x:Name="BtnHome"
+                        Text="🏠 Beranda"
+                        BackgroundColor="#0B5ED7"
+                        TextColor="White"
+                        CornerRadius="10"
+                        Clicked="OnHomeMenuClicked"/>
+
+                <Button x:Name="BtnPrediksi"
+                        Text="⚠ Prediksi"
+                        BackgroundColor="Transparent"
+                        TextColor="#CBD5E1"
+                        CornerRadius="10"
+                        Clicked="OnPrediksiMenuClicked"/>
+
+                <Button x:Name="BtnHistori"
+                        Text="▣ Histori"
+                        BackgroundColor="Transparent"
+                        TextColor="#CBD5E1"
+                        CornerRadius="10"
+                        Clicked="OnHistoriMenuClicked"/>
+
+                <Button x:Name="BtnLaporan"
+                        Text="▤ Laporan"
+                        BackgroundColor="Transparent"
+                        TextColor="#CBD5E1"
+                        CornerRadius="10"
+                        Clicked="OnLaporanMenuClicked"/>
+
+                <Button x:Name="BtnNlp"
+                        Text="💬 NLP Chatbot"
+                        BackgroundColor="Transparent"
+                        TextColor="#CBD5E1"
+                        CornerRadius="10"
+                        Clicked="OnNlpMenuClicked"/>
+
+                <BoxView HeightRequest="1" Color="#1E293B"/>
+
+                <Frame BackgroundColor="#052E2B"
+                       BorderColor="#10B981"
+                       CornerRadius="14"
+                       Padding="14">
+                    <VerticalStackLayout>
+                        <Label Text="STATUS SISTEM"
+                               TextColor="#22C55E"
+                               FontAttributes="Bold"/>
+                        <Label Text="● ONLINE"
+                               FontSize="25"
+                               FontAttributes="Bold"
+                               TextColor="#22C55E"/>
+                        <Label Text="Monitoring aktif"
+                               TextColor="#CBD5E1"
+                               FontSize="11"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Button Text="⏻ Logout"
+                        BackgroundColor="#7F1D1D"
+                        TextColor="#FCA5A5"
+                        CornerRadius="10"
+                        Clicked="OnLogoutClicked"/>
+
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- CONTENT -->
+        <ScrollView Grid.Column="1">
+            <VerticalStackLayout Spacing="14">
+
+                <Label x:Name="LabelJudulMenu"
+                       Text="Beranda Masyarakat"
+                       FontSize="32"
+                       FontAttributes="Bold"
+                       TextColor="#38BDF8"/>
+
+                <Label Text="Pantau prediksi longsor, histori, laporan, dan mitigasi."
+                       TextColor="#94A3B8"/>
+
+                <!-- HOME VIEW -->
+                <ContentView x:Name="HomeView">
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="14">
+
+                        <Frame BackgroundColor="#07111F"
+                               BorderColor="#F59E0B"
+                               CornerRadius="14"
+                               Padding="22">
+                            <VerticalStackLayout Spacing="10">
+                                <Label Text="⚠ STATUS RISIKO TERBARU"
+                                       TextColor="#FBBF24"
+                                       FontSize="22"
+                                       FontAttributes="Bold"/>
+
+                                <Label x:Name="LabelPrediksiTerbaru"
+                                       Text="Belum ada prediksi terbaru dari admin."
+                                       TextColor="#CBD5E1"/>
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <Frame Grid.Column="1"
+                               BackgroundColor="#07111F"
+                               BorderColor="#10B981"
+                               CornerRadius="14"
+                               Padding="22">
+                            <VerticalStackLayout Spacing="10">
+                                <Label Text="✅ REKOMENDASI MITIGASI"
+                                       TextColor="#22C55E"
+                                       FontSize="22"
+                                       FontAttributes="Bold"/>
+
+                                <Label Text="Tetap pantau kondisi sekitar. Hindari area lereng saat hujan deras dan segera laporkan jika muncul retakan tanah."
+                                       TextColor="#CBD5E1"/>
+                            </VerticalStackLayout>
+                        </Frame>
+
+                    </Grid>
+                </ContentView>
+
+                <!-- PREDIKSI VIEW -->
+                <ContentView x:Name="PrediksiView" IsVisible="False">
+                    <Frame BackgroundColor="#07111F"
+                           BorderColor="#F59E0B"
+                           CornerRadius="14"
+                           Padding="22">
+                        <VerticalStackLayout Spacing="12">
+                            <Label Text="PREDIKSI TERBARU DARI ADMIN"
+                                   TextColor="#FBBF24"
+                                   FontSize="22"
+                                   FontAttributes="Bold"/>
+
+                            <Label x:Name="LabelPrediksiDetail"
+                                   Text="Belum ada prediksi terbaru."
+                                   TextColor="#CBD5E1"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </ContentView>
+
+                <!-- HISTORI VIEW -->
+                <ContentView x:Name="HistoriView" IsVisible="False">
+                    <Frame BackgroundColor="#07111F"
+                           BorderColor="#0EA5E9"
+                           CornerRadius="14"
+                           Padding="22">
+                        <VerticalStackLayout Spacing="12">
+                            <Label Text="HISTORI PREDIKSI"
+                                   TextColor="#38BDF8"
+                                   FontSize="22"
+                                   FontAttributes="Bold"/>
+
+                            <Label x:Name="LabelHistori"
+                                   Text="Belum ada histori prediksi."
+                                   TextColor="#CBD5E1"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </ContentView>
+
+                <!-- LAPORAN VIEW -->
+                <ContentView x:Name="LaporanView" IsVisible="False">
+                    <Frame BackgroundColor="#07111F"
+                           BorderColor="#EF4444"
+                           CornerRadius="14"
+                           Padding="22">
+                        <VerticalStackLayout Spacing="12">
+
+                            <Label Text="KIRIM LAPORAN KONDISI SEKITAR"
+                                   TextColor="#F87171"
+                                   FontSize="22"
+                                   FontAttributes="Bold"/>
+
+                            <Entry x:Name="EntryLokasi"
+                                   Placeholder="Masukkan lokasi / desa"
+                                   TextColor="White"
+                                   PlaceholderColor="#94A3B8"
+                                   BackgroundColor="#0F172A"/>
+
+                            <Editor x:Name="EditorLaporan"
+                                    Placeholder="Contoh: tanah retak, hujan deras, ada getaran..."
+                                    HeightRequest="130"
+                                    TextColor="White"
+                                    PlaceholderColor="#94A3B8"
+                                    BackgroundColor="#0F172A"/>
+
+                            <Button Text="KIRIM LAPORAN"
+                                    BackgroundColor="#DC2626"
+                                    TextColor="White"
+                                    FontAttributes="Bold"
+                                    CornerRadius="10"
+                                    Clicked="OnKirimLaporanClicked"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </ContentView>
+
+                <!-- NLP VIEW -->
+                <ContentView x:Name="NlpView" IsVisible="False">
+                    <Frame BackgroundColor="#07111F"
+                           BorderColor="#A855F7"
+                           CornerRadius="14"
+                           Padding="22">
+                        <VerticalStackLayout Spacing="12">
+
+                            <Label Text="NLP CHATBOT MITIGASI LONGSOR"
+                                   TextColor="#C084FC"
+                                   FontSize="22"
+                                   FontAttributes="Bold"/>
+
+                            <Editor x:Name="EditorNLP"
+                                    Placeholder="Tanyakan tentang risiko longsor atau mitigasi..."
+                                    HeightRequest="120"
+                                    TextColor="White"
+                                    PlaceholderColor="#94A3B8"
+                                    BackgroundColor="#0F172A"/>
+
+                            <Button Text="TANYA NLP"
+                                    BackgroundColor="#7C3AED"
+                                    TextColor="White"
+                                    CornerRadius="10"
+                                    Clicked="OnNlpClicked"/>
+
+                            <Label x:Name="LabelOutputNLP"
+                                   Text="Belum ada hasil NLP."
+                                   TextColor="#CBD5E1"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </ContentView>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
